@@ -1,11 +1,12 @@
 html {
   scroll-behavior: smooth;
+   scroll-padding-top: 80px; /* adjust to navbar height */
 }
 
 body {
   margin: 0;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  background-color: #0f172a;
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
   color: #e5e7eb;
 }
 
@@ -29,23 +30,32 @@ section {
 }
 
 nav {
-  background-color: #0f172a;
-  padding: 20px 0;
+  background-color: #0f172a; /* same as hero top */
+  padding: 24px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* subtle shadow */
 }
 
 .nav-container {
-  max-width: 900px; /* same as sections */
-  margin: 0 auto;   /* center container */
+  max-width: 1000px;       /* slightly wider */
+  margin: 0 auto;
+  padding: 0 40px;         /* more breathing room from edges */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;       /* remove padding here */
 }
 
 .nav-container h3 a {
   text-decoration: none;
   font-size: 24px;
   color: #fff;
+}
+
+.nav-container h3:hover {
+  transform: rotate(10deg) scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 .nav-links a {
@@ -75,6 +85,23 @@ nav {
   width: 100%;
 }
 
+.logo {
+  display: flex;
+  align-items: center; /* vertical alignment of icon + text */
+  gap: 8px;            /* horizontal space between icon and text */
+}
+
+.logo-text {
+  font-size: 20px;      /* adjust to match icon visually */
+  font-weight: 700;     /* bold for emphasis */
+  color: #fff;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
 h1 {
   font-size: 56px;
   margin-bottom: 16px;
@@ -96,6 +123,12 @@ h3 {
 
 section {
   margin-bottom: 80px;
+  margin-top: 40px; /* adds breathing room */
+  min-height: 550px; /* ensures section is tall enough to trigger scroll */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* optional: vertically center content */
+  padding-top: 80px; /* pushes content down a bit */
 }
 
 section p {
@@ -110,22 +143,42 @@ section h2 {
 
 .hero {
   margin-top: 80px;
-  margin-bottom: 120px;
+  margin-bottom: 40px;
   max-width: 900px;
 }
 
 .hero-content {
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
 }
 
 .hero p:first-of-type {
   font-size: 22px;
   color: #e5e7eb;
+  margin-bottom: 0px;
 }
 
 .hero p:last-of-type {
   font-size: 18px;
   color: #94a3b8;
+}
+
+.about {
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-content p {
+  max-width: 600px;   /* keeps line length readable */
+  line-height: 1.6;   /* space between lines */
+  margin-top: 16px;   /* space between title and paragraph */
+  color: #94a3b8;     /* your existing slightly lighter text */
 }
 
 .projects-grid {
@@ -143,13 +196,24 @@ section h2 {
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card h3 {
   margin-top: 0;
   margin-bottom: 10px;
+}
+
+.project-card, .skill-badge {
+  will-change: transform, opacity; /* hints the browser to animate smoothly */
+}
+
+.project-card p {
+  line-height: 1.6;
+  margin-top: 12px;
+  color: #cbd5e1; /* slightly softer than previous text */
 }
 
 .skills-list {
@@ -177,6 +241,11 @@ section h2 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+.skill-badge:hover {
+  transform: scale(1.1) rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
 .contact-grid {
   display: flex;
   gap: 32px;
@@ -187,7 +256,7 @@ section h2 {
 .contact-icon {
   position: relative;  /* needed for tooltip positioning */
   color: #94a3b8;
-  font-size: 48px;
+  font-size: 32px;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -225,6 +294,11 @@ section h2 {
 
   h1 {
     font-size: 40px;
+  }
+
+  .about-content p {
+    max-width: 100%;
+    font-size: 16px;
   }
 
   .projects-grid {

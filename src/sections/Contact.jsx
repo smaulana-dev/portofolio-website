@@ -4,11 +4,11 @@ import { FaEnvelope, FaGithub } from "react-icons/fa";
 
 function Contact() {
   return (
-    <section id="contact">
+    <section id="contact" className="contact">
 
-      <h2>Contact</h2>
+      <h2 data-aos="fade-up">Contact</h2>
 
-      <div className="contact-grid">
+      <div className="contact-grid" data-aos="fade-up">
 
         <a
           className="contact-icon"
