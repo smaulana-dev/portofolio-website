@@ -1,16 +1,21 @@
 function Navbar() {
-    return (
-        <nav>
-            <h3>smaulana-dev</h3>
+  return (
+    <nav>
+      <div className="nav-container">
 
-            <div>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    )
+        <h3>
+          <a href="#hero">Maulana Dev</a>
+        </h3>
+
+        <div className="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+      </div>
+    </nav>
+  )
 }
 
 export default Navbar

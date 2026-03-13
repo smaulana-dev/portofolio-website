@@ -10,14 +10,17 @@ function About() {
             game server logic
             </p>
 
-            <ul className="skills-list">
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Node.js</li>
-                <li>Game Server Development (RageMP)</li>
-                <li>Game Server Development (SA:MP/open.mp)</li>
-                <li>System Design</li>
-            </ul>
+            <div className="skills">
+
+            <span className="skill-badge">JavaScript</span>
+            <span className="skill-badge">C/C++</span>
+            <span className="skill-badge">HTML & CSS</span>
+            <span className="skill-badge">React</span>
+            <span className="skill-badge">Node.js</span>
+            <span className="skill-badge">RageMP</span>
+            <span className="skill-badge">System Design</span>
+
+            </div>
         </section>
     )
 }
