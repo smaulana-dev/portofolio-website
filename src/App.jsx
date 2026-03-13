@@ -1,17 +1,23 @@
+import Navbar from "./components/Navbar"
+import Hero from "./sections/Hero"
+import Projects from "./sections/Projects"
+import About from "./sections/About"
+
+
 function App() {
   return (
-    <div style={{padding: "40px", fontFamily: "Arial"}}>
-      <h1>Maulana</h1>
-      <p>Electrical Engineer → Software Developer</p>
+    <div className="container">
+      <Navbar />
+      <Hero />
+      <About />
+      <Projects />
 
-      <h2>Projects</h2>
-      <ul>
-        <li>VindicateRP – GTA V RageMP Roleplay Server</li>
-        <li>Portfolio Website – React + Vite</li>
-      </ul>
+      {/* Contact */}
+      <section>
+        <h2>Contact</h2>
+        <p>GitHub: github.com/smaulana-dev</p>
+      </section>
 
-      <h2>Skills</h2>
-      <p>JavaScript, React, Node.js, Game Server Development</p>
     </div>
   )
 }
