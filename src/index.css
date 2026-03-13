@@ -6,8 +6,29 @@ html {
 body {
   margin: 0;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  background: linear-gradient(to bottom, #0f172a, #1e293b);
   color: #e5e7eb;
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b);
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8z/C/HwAF/wJ/wZT28QAAAABJRU5ErkJggg=='); 
+  opacity: 0.02;  /* very subtle */
+  z-index: 1;
 }
 
 .container {
@@ -31,7 +52,7 @@ section {
 
 nav {
   background-color: #0f172a; /* same as hero top */
-  padding: 24px 0;
+  padding: 8px 0;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -153,6 +174,10 @@ section h2 {
   max-width: 600px;
 }
 
+.hero-content p {
+  line-height: 1.4;
+}
+
 .hero p:first-of-type {
   font-size: 22px;
   color: #e5e7eb;
@@ -179,6 +204,39 @@ section h2 {
   line-height: 1.6;   /* space between lines */
   margin-top: 16px;   /* space between title and paragraph */
   color: #94a3b8;     /* your existing slightly lighter text */
+}
+
+/* Wrapper for image + text */
+.about-wrapper {
+  display: flex;
+  align-items: flex-start; /* aligns top of image and text */
+  gap: 24px;                /* space between image and text */
+}
+
+/* Profile image */
+.about-image {
+  width: 150px;              /* adjust size */
+  height: 150px;
+  object-fit: cover;     /* crops nicely to fit dimensions */
+  flex-shrink: 0;        /* prevents shrinking on smaller screens */
+  border-radius: 0;      /* remove the circle effect */
+}
+
+/* Text next to image */
+.about-text {
+  flex: 1;                   /* text takes remaining space */
+}
+
+.about-text h2 {
+  margin-top: 0;   /* removes default top margin */
+  margin-bottom: 12px; /* spacing below heading */
+}
+
+/* Optional paragraph styling */
+.about-text p {
+  line-height: 1.7;
+  margin-top: 12px;
+  color: #cbd5e1;
 }
 
 .projects-grid {
@@ -290,6 +348,27 @@ section h2 {
   transform: translateX(-50%) translateY(-12px);
 }
 
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #0f172a; /* matches theme */
+  color: #94a3b8;
+  font-size: 14px;
+  border-top: 1px solid #1e293b;
+  position: relative; /* ensures it’s above particle canvas */
+  z-index: 1;
+}
+
+.footer a {
+  color: #3b82f6;            /* React blue accent */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: #60a5fa;            /* lighter blue on hover */
+}
+
 @media (max-width: 768px) {
 
   h1 {
@@ -299,6 +378,17 @@ section h2 {
   .about-content p {
     max-width: 100%;
     font-size: 16px;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 220px;
+    height: 220px;
   }
 
   .projects-grid {

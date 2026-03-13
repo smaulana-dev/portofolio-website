@@ -4,14 +4,23 @@ function About() {
     return (
         <section id="about" className="about">
             <div className="about-content" data-aos="fade-right">
-                <h2>About</h2>
+                <div className="about-wrapper">
+                    <img
+                        src="/public/profile.jpg"  // put your picture in public folder or use correct path
+                        alt="Maulana"
+                        className="about-image"
+                    />
+                    <div className="about-text">
+                        <h2>About Me</h2>
 
-                    <p>Electrical engineer with over 10 years of professional experience, 
-                    currently transitioning into software development. I enjoy building 
-                    systems that solve real-life problems, from web applications to multiplayer 
-                    game server logic
-                    </p>
-
+                            <p>Electrical engineer (B.Eng) with over 10 years of professional field working experience, 
+                            currently transitioning into software development. I enjoy building 
+                            systems that solve real-life problems, from web applications to multiplayer 
+                            game server logic
+                            </p>
+                        </div>
+                
+                </div>
                     <div className="skills">
                         {skills.map((skill, index) => (
                             <span
